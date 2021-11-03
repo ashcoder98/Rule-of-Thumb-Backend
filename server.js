@@ -14,6 +14,14 @@ db.on('open', ()=> console.log('You are connected to MongoDB'));
 db.on('close', ()=> console.log('You are disconnected to MongoDB'));
 db.on('error', (error) => console.log(error));
 
+const AdviceSchema = new mongoose.Schema({
+    username: String,
+    advice: String,
+});
+const Advice = mongoose.model("Advice", AdviceSchema);
+
+
+
 
 app.get('/', (req, res) => {
     res.send('Hello')
