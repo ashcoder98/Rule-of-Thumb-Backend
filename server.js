@@ -19,7 +19,9 @@ const AdviceSchema = new mongoose.Schema({
     advice: String,
 });
 const Advice = mongoose.model("Advice", AdviceSchema);
-
+app.use(cors());
+app.use(morgan('dev'));
+app.use(express.json());
 
 
 
