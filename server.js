@@ -32,6 +32,7 @@ app.get('/dashboard', async (req, res) => {
    }
 });
 app.post('/dashboard', async (req, res) => {
+    console.log(req.body)
     try {
         res.json(await Advice.create(req.body));
     } catch (error) {
