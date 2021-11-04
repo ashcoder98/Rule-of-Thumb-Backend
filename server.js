@@ -24,9 +24,19 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 
-
-app.get('/', (req, res) => {
-    res.send('Hello')
+app.get('/dashboard', async (req, res) => {
+   try {
+       res.json(await Advice.find({}));
+   } catch (error) {
+       res.status(400).json(error);
+   }
+});
+app.post('/dashboard', async (req, res) => {
+    try {
+        res.json(await Advice.create(req.body));
+    } catch (error) {
+        res.status(400).json(error);
+    }
 })
 
 app.listen(PORT, ()=> {
